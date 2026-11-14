@@ -1,0 +1,224 @@
+
+<!-- ==========================================
+     LOSC WEBSITE - NAVIGATION AND HERO SECTION
+     ========================================== -->
+
+
+<!-- 1. HTML: THE WEBSITE STRUCTURE -->
+
+<div id="losc">
+
+  <!-- Navigation bar: contains the links -->
+  <nav id="navbar">
+
+    <div class="left-links">
+      <a href="HOME-URL">⌂ MENU</a>
+      <a href="NEWS-URL">ACTUALITÉS</a>
+      <a href="FIXTURES-URL">CALENDRIER</a>
+    </div>
+
+    <div class="right-links">
+      <a href="TICKETS-URL">BILLETTERIE</a>
+      <a href="SHOP-URL">BOUTIQUE</a>
+      <a href="OFFERS-URL">NOS OFFRES</a>
+    </div>
+
+  </nav>
+
+
+  <!-- LOSC logo: positioned separately so it can move -->
+  <div id="logo">
+    <img src="YOUR-LOGO-URL" alt="LOSC">
+  </div>
+
+
+  <!-- Background GIF -->
+  <div id="hero">
+    <img src="YOUR-GIF-URL" alt="LOSC football footage">
+  </div>
+
+</div>
+
+
+
+<!-- 2. CSS: THE DESIGN AND ANIMATIONS -->
+
+<style>
+
+/* Main container */
+#losc {
+  width: 100%;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+
+/* NAVIGATION BAR */
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+  box-sizing: border-box;
+
+  background: transparent;
+  z-index: 10;
+
+  /* Makes the colour and height changes smooth */
+  transition: 0.5s;
+}
+
+
+/* Navigation links */
+
+.left-links, .right-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+#navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+/* Link changes colour when hovered */
+#navbar a:hover {
+  color: #D71920;
+}
+
+
+/* LOGO */
+
+#logo {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+
+  /* Centres the logo horizontally */
+  transform: translateX(-50%);
+
+  width: 100px;
+  z-index: 20;
+
+  /* Animates the logo's movement and size */
+  transition: 0.5s;
+}
+
+#logo img {
+  width: 100%;
+  display: block;
+}
+
+
+/* BACKGROUND GIF */
+
+#hero {
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+}
+
+#hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* 3. SCROLLED APPEARANCE */
+
+/* Navigation becomes white */
+#navbar.scrolled {
+  background: white;
+  height: 85px;
+  box-shadow: 0 2px 8px #00000020;
+}
+
+/* Links become navy blue */
+#navbar.scrolled a {
+  color: #25205F;
+}
+
+/* Logo moves into the navigation bar */
+#logo.scrolled {
+  top: 10px;
+  width: 65px;
+}
+
+
+/* 4. MOBILE ADJUSTMENTS */
+
+@media (max-width: 750px) {
+
+  .left-links, .right-links {
+    gap: 7px;
+  }
+
+  #navbar {
+    padding: 0 8px;
+  }
+
+  #navbar a {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  #logo {
+    width: 55px;
+    top: 12px;
+  }
+
+  #logo.scrolled {
+    width: 40px;
+    top: 10px;
+  }
+
+}
+
+</style>
+
+
+
+<!-- 5. JAVASCRIPT: DETECTING SCROLLING -->
+
+<script>
+
+// Find the navigation bar and logo
+const navbar = document.getElementById("navbar");
+const logo = document.getElementById("logo");
+
+// Detect when the user scrolls
+window.addEventListener("scroll", function() {
+
+  // If the user scrolls more than 50 pixels
+  if (window.scrollY > 50) {
+
+    // Change the navigation bar and move the logo
+    navbar.classList.add("scrolled");
+    logo.classList.add("scrolled");
+
+  } else {
+
+    // Return everything to its original appearance
+    navbar.classList.remove("scrolled");
+    logo.classList.remove("scrolled");
+
+  }
+
+});
+
+</script>
