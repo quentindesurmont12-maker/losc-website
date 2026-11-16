@@ -1,38 +1,38 @@
 
-<!-- ==========================================
-     LOSC WEBSITE - NAVIGATION AND HERO SECTION
-     ========================================== -->
-
-
-<!-- 1. HTML: THE WEBSITE STRUCTURE -->
+<!-- 1. HTML: WEBSITE STRUCTURE -->
 
 <div id="losc">
 
-  <!-- Navigation bar: contains the links -->
+  <!-- NAVIGATION BAR -->
   <nav id="navbar">
 
     <div class="left-links">
-      <a href="HOME-URL">Matches</a>
-      <a href="NEWS-URL">Ranking</a>
-      <a href="FIXTURES-URL">Buy tickets</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/home" target="_top">Home</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/matches" target="_top">Matches</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/ranking" target="_top">Ranking</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/buy-tickets" target="_top">Buy Tickets</a>
     </div>
 
+    <!-- CENTRE SPACE FOR LOGO -->
+    <div class="nav-centre"></div>
+
     <div class="right-links">
-      <a href="TICKETS-URL">Shop</a>
-      <a href="SHOP-URL">Club History</a>
-      <a href="OFFERS-URL">Events</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/shop" target="_top">Shop</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/club-history" target="_top">Club History</a>
+      <a href="https://sites.google.com/bisvietnam.com/losc/events" target="_top">Events</a>
     </div>
 
   </nav>
 
 
-  <!-- LOSC logo: positioned separately so it can move -->
+  <!-- LOGO AND PAGE NAME -->
   <div id="logo">
     <img src="france_lille_256x256.football-logos.cc.png" alt="LOSC">
+    <div id="page-title">Home</div>
   </div>
 
 
-  <!-- Background GIF -->
+  <!-- BACKGROUND GIF -->
   <div id="hero">
     <img src="losc-website-gif.gif" alt="LOSC football footage">
   </div>
@@ -40,16 +40,19 @@
 </div>
 
 
-
-<!-- 2. CSS: THE DESIGN AND ANIMATIONS -->
+<!-- 2. CSS: DESIGN AND ANIMATIONS -->
 
 <style>
 
-/* Main container */
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* MAIN CONTAINER */
 #losc {
   width: 100%;
   position: relative;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -60,10 +63,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 120px;
+  height: 145px;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 130px 1fr;
   align-items: center;
 
   padding: 0 30px;
@@ -72,54 +75,70 @@
   background: transparent;
   z-index: 10;
 
-  /* Makes the colour and height changes smooth */
   transition: 0.5s;
 }
 
 
-/* Navigation links */
+/* NAVIGATION LINKS */
 
 .left-links, .right-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  justify-content: space-evenly;
+  gap: 18px;
+  min-width: 0;
 }
 
 #navbar a {
   color: white;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px;
   letter-spacing: 1px;
+  white-space: nowrap;
   transition: 0.3s;
 }
 
-/* Link changes colour when hovered */
+/* HOVER EFFECT */
 #navbar a:hover {
   color: #D71920;
 }
 
 
-/* LOGO */
+/* CENTRE SPACE */
+
+.nav-centre {
+  width: 100%;
+}
+
+
+/* LOGO AND PAGE TITLE */
 
 #logo {
   position: fixed;
-  top: 25px;
+  top: 15px;
   left: 50%;
-
-  /* Centres the logo horizontally */
   transform: translateX(-50%);
 
-  width: 100px;
+  width: 85px;
   z-index: 20;
 
-  /* Animates the logo's movement and size */
+  text-align: center;
   transition: 0.5s;
 }
 
 #logo img {
   width: 100%;
   display: block;
+}
+
+#page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+  white-space: nowrap;
 }
 
 
@@ -141,22 +160,31 @@
 
 /* 3. SCROLLED APPEARANCE */
 
-/* Navigation becomes white */
+/* NAVIGATION BECOMES WHITE */
+
 #navbar.scrolled {
   background: white;
   height: 85px;
   box-shadow: 0 2px 8px #00000020;
 }
 
-/* Links become navy blue */
+/* LINKS BECOME NAVY BLUE */
+
 #navbar.scrolled a {
   color: #25205F;
 }
 
-/* Logo moves into the navigation bar */
+/* LOGO MOVES INTO NAVIGATION BAR */
+
 #logo.scrolled {
-  top: 10px;
-  width: 65px;
+  top: 5px;
+  width: 55px;
+}
+
+#logo.scrolled #page-title {
+  color: #25205F;
+  font-size: 11px;
+  margin-top: 0;
 }
 
 
@@ -164,16 +192,17 @@
 
 @media (max-width: 750px) {
 
-  .left-links, .right-links {
-    gap: 7px;
-  }
-
   #navbar {
+    grid-template-columns: 1fr 75px 1fr;
     padding: 0 8px;
   }
 
+  .left-links, .right-links {
+    gap: 5px;
+  }
+
   #navbar a {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0;
   }
 
@@ -182,15 +211,22 @@
     top: 12px;
   }
 
+  #page-title {
+    font-size: 12px;
+  }
+
   #logo.scrolled {
     width: 40px;
-    top: 10px;
+    top: 5px;
+  }
+
+  #logo.scrolled #page-title {
+    font-size: 9px;
   }
 
 }
 
 </style>
-
 
 
 <!-- 5. JAVASCRIPT: DETECTING SCROLLING -->
@@ -207,13 +243,11 @@ window.addEventListener("scroll", function() {
   // If the user scrolls more than 50 pixels
   if (window.scrollY > 50) {
 
-    // Change the navigation bar and move the logo
     navbar.classList.add("scrolled");
     logo.classList.add("scrolled");
 
   } else {
 
-    // Return everything to its original appearance
     navbar.classList.remove("scrolled");
     logo.classList.remove("scrolled");
 
