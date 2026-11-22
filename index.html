@@ -140,12 +140,18 @@ section {
   line-height: 1.8;
 }
 
-/* LOSC IMAGE */
-.club-image {
-  display: block;
-  width: 100%;
-  max-width: 750px;
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1000px;
   margin: 30px auto;
+}
+
+.image-row img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -200,6 +206,9 @@ section {
   #logo {
     width: 85px;
   }
+  .image-row {
+  grid-template-columns: 1fr;
+}
 }
 
 </style>
@@ -249,7 +258,7 @@ section {
 
 <div class="image-row">
   <img src="Lille❤️💙.jpg" alt="LOSC image 1">
-  <img src="LOSC Lille.jpg=" alt="LOSC image 2">
+  <img src="LOSC Lille.jpg" alt="LOSC image 2">
   <img src="Vue panoramique sur le stade Pierre-Mauroy_ Allez le Losc !!!.jpg" alt="LOSC image 3">
 </div>
 </section>
